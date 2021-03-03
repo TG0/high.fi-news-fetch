@@ -1,4 +1,4 @@
-# High.fi news filter
+# High.fi news fetch
 
 The script fetches news titles from high.fi JSON feed and creates a filtered result HTML page of the news.
 
@@ -35,13 +35,13 @@ Esim: 'moottor' suodattaa: 'moottorit', 'moottoreja', 'moottoripyörä', 'mootto
 
 **avoid_media.txt** - määritä mediat, joiden uutiset oletuksena ohitetaan
 
-**avoid_words.txt** - määritä sanat* joita havaitessa otsikossa, uutinen ohitetaan (jollei ole jo ed. säännöllä ohitettu)
+**avoid_words.txt** - määritä sanat** joita havaitessa otsikossa, uutinen ohitetaan (jollei ole jo ed. säännöllä ohitettu)
 
-**exception_words.txt** - määritä sanat* joita otsikosta löydettäessä uutista ei ohiteta, 2 edellisestä säännöstä huolimatta
+**exception_words.txt** - määritä sanat** joita otsikosta löydettäessä uutista ei ohiteta, 2 edellisestä säännöstä huolimatta
 
 **exception_media.txt** - määritä mediat joiden uutisia ei koskaan ohiteta, edellisistä säännöistä huolimatta
 
-* Huom: jos määrität tiedostoon sanan 'seat', ohjelma hakee kuitenkin ' seat' (välilyönnillä edessä). 
+** Huom: jos määrität tiedostoon sanan 'seat', ohjelma hakee kuitenkin ' seat' (välilyönnillä edessä). 
 Ts. sana ' useat' ei jää filtteriin kiinni. Sen sijaan ' Seat-autoilija' jää. 
 Jos otsikko kuitenkin alkaa sanalla, välilyöntiä edessä ei käytetä. Esim: 'Seat ei ole auto' suodattuu pois.
 
