@@ -1,0 +1,16 @@
+# Määritä tänne sanat, joiden esiintyessä otsikossa uutista ei
+# ohiteta, vaikka se muuten oltaisiin ohitettu muiden sääntöjen perusteella
+#
+#
+hardware
+financial times
+netflix
+hbo
+disney
+viaplay
+arvopaperi
+taloussanom
+tietoviik
+tivi
+markkinointi
+kauppaleh

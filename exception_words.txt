@@ -1,0 +1,32 @@
+# määritä tänne sanat joiden esiintyessä otsikossa uutista ei
+# ohiteta, vaikka se muuten oltaisiin ohitettu muiden sääntöjen perusteella
+#
+#
+# ---- autoihin liittyvät ----
+
+koeajo
+ensityypit
+automerk
+autoi
+moottori
+rengasmer
+rengasver
+
+# ---- automerkit ----
+mercedes
+toyota
+kia
+hyundai
+vw
+audi
+volvo
+mazda
+nissan
+seat
+skoda
+bmw
+
+# ---- tietotekniikka ----
+
+tietoko
+tietotekn

@@ -1,0 +1,59 @@
+# Määritä tänne mediat tai niiden alut, joiden esiintyessä otsikossa, se ohitetaan.
+# Nimen alkuosa voi riittää, jos se on yksilöllinen.
+#
+#
+# mediat:
+# ------------------------------
+
+newsner
+findance
+stara (viihde)
+iltalehti (viihde)
+iltasanomat (viihde)
+findance
+seiska
+valioliiga
+suomikoris
+laliiga
+rumba
+inferno
+soundi
+pääkallo
+viikonloppu.com
+mun oulu
+voice
+suomifutis
+como (viihde)
+
+# Pelaaminen:
+# ------------------------------
+
+errori.net
+konsolifin
+tilt
+gamereactor
+muropaketti (pelit)
+peli legacy
+eurheilu
+pelaajalehti
+
+
+# kaupunkimediat:
+# ------------------------------
+# leikkaa sana niin, ettei ääkkösiä ja öökkösiä! (todo fix)
+
+vantaan kaupunki
+kotkan kaupunki
+joen kaupunki
+oulun kaupunki
+vaasan kaupunki
+lappeenrannan kaupunki
+äänekosken
+lahden kaupunki
+varkauden kaupunki
+kouvolan kaupunki
+meenlinnan kaupunki
+suomussalmen kunta
+
+
+

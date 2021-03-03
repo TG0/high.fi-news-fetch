@@ -1,0 +1,64 @@
+# Määritä tänne sanat tai niiden alut, joiden esiintyessä otsikossa, se ohitetaan.
+# Nimen alkuosa voi riittää, jos se on yksilöllinen.
+#
+# ---- yleiset sanat ----
+
+horoskoop
+diili
+uhkea
+povipom
+tempppar
+temptation isl
+blind channel
+poseera
+kuninkaalli
+prinssi
+kuningat
+huuhkaj
+mestis
+woke
+ravivihj
+toto
+salibandy
+f1
+formula
+parisuh
+rintavako
+big brother
+feissari
+miss suom
+pakara
+bb-
+selviytyjät-
+liverpool
+alastomana
+
+
+# ---- henkilöt ----
+
+kardashian
+danny
+erika wik
+heidi klum
+krista pärmä
+marika fing
+jessica alves
+tauski
+sedu
+tommi korpel
+britney spears
+hannele lauri
+viivi huuska
+cristal snow
+lady gaga
+bieber
+sara siep
+oprah
+nanna karalah
+sofia bel
+matti nykä
+kukkohov
+pete parkko
+maisa torp
+rihanna
+vilkkumaa

@@ -1,0 +1,46 @@
+a {
+  text-decoration: none;
+  font-size: 17px;
+  color: #8DB2E5;
+  line-height: 180%;
+  font-family: Open Sans;
+  padding-left: 14px;
+}
+
+a:visited {
+  color: #485B75;
+}
+
+#star {
+  color: #A3A300;
+  font-size: 12px;
+  margin-left: -2px;
+  margin-right: -9px;
+}
+
+body {
+  /*background-color: #292929;*/
+  background-color: #212121;
+  font-family: Open Sans;
+}
+
+#main {
+  margin: auto;
+  width: 65%;
+  border: 3px solid #555555;
+  padding: 10px;
+}
+
+h2.subtitle { 
+  margin-bottom: -27px;
+  margin-top: 13px;
+  color: #EEEEEE;
+  font-size: 14px;
+  font-weight: lighter;
+  padding-left: 13px;
+}
+
+#author {
+  font-size: 12;
+  color: #A4B7D1;
+}
