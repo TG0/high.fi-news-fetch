@@ -96,7 +96,6 @@ def fileLinesToList(fileName):
 
     for line in codecs.open(fileName, "r", encoding="utf-8"):
         if line.startswith("#") or line.startswith("  ") or len(line) < 4:  # line is: '#' -> len=3
-            #print("len=%s -- '%s'" % (len(line), line))
             continue
         _tmp.append(line.lower().strip())
     return _tmp
@@ -158,15 +157,10 @@ def fetchNewsJSON():
 
             skip = False
 
-            #if dicItem["author"].lower().find("nekosken") > -1:
-              # print(">", dicItem["author"].lower())
-              # print(">",  dicItem["author"].lower().find("ää") > -1)
-
             for media in lstAvoidMedia:
                 if dicItem["author"].lower().find(media) > -1:
                     skip = True
                     skipReason = media
-                    #if media.lower().find("nekosken")>-1: print("1:", skip, media)     # OTA NAA POIS x 4!!!!!!!!!!!!!!!!!!!!!!
                     break
 
             if not skip:
@@ -175,7 +169,6 @@ def fetchNewsJSON():
                        dicItem["title"].lower().startswith(text):
                         skip = True
                         skipReason = text
-                        #if media.lower().find("nekosken")>-1: print("2:", skip, text)
                         break
 
             if skip:
@@ -184,7 +177,6 @@ def fetchNewsJSON():
                        dicItem["title"].lower().startswith(text):
                         skip = False
                         skipReason = text
-                        #if media.lower().find("nekosken")>-1: print("3:", skip, text)
                         break
 
             if skip:
@@ -192,7 +184,6 @@ def fetchNewsJSON():
                     if dicItem["author"].lower().find(media) > -1:
                         skip = False
                         skipReason = media
-                        #if media.lower().find("nekosken")>-1: print("4:", skip, media)
                         break
                     
             if skip:
