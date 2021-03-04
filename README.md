@@ -11,12 +11,12 @@ Finnish introduction text below, english one coming below that later on!
 
 ### listaus medioittain
 
-![kuvakaappaus](https://drive.google.com/uc?id=11hEJPv352fI-4ssxXKDKgzL5iZ6Yu0kn)  
+![kuvakaappaus](medioittain.jpg)  
   
 
 ### listaus aikajärjestyksessä
 
-![kuvakaappaus](https://drive.google.com/uc?id=11hpuyuY1IjRVw5nOIYXiFoQ6MEYN2veF)  
+![kuvakaappaus](aikajarjestyksessa.jpg)  
   
   
 
