@@ -20,6 +20,7 @@ TEMPL_PAGE = Template("""<html lang="fi">
   </head>
   <body>
     <section id="main">
+      <a href="${link}">${linktitle}</a><br>${extraspace}
 
       ${content}
       <br>

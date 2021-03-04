@@ -54,6 +54,7 @@ varkauden kaupunki
 kouvolan kaupunki
 meenlinnan kaupunki
 suomussalmen kunta
+yle (lappi)
 
 
 

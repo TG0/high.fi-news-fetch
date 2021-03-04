@@ -60,11 +60,16 @@ Tulostiedoston ulkoasun voi muuttaa muokkaamalla css-tyylitiedostoa style.css
 
 URL = "https://high.fi/uutiset/%d/json"
 
-RESULT_FILE = "results.html"
+RESULT_FILE          = "results.html"
+RESULT_FILE_BY_MEDIA = "results_by_media.html"
 
 CSS_STYLE  = ""  # content of style.css read here
-
   
+TITLE = 0
+LINK  = 1
+TIME  = 2
+AUTH  = 3 
+SKIP  = 4 
 
 lstHighlightMedia = ""
 lstHighlightWord  = ""
@@ -236,12 +241,6 @@ def writeNewsToHtmlFile(_in):
     """
     global CSS_STYLE
 
-    TITLE = 0
-    LINK  = 1
-    TIME  = 2
-    AUTH  = 3 
-    SKIP  = 4 
-
     lstNews, lstSkippedNews = _in
 
     fp = open(RESULT_FILE, "w")
@@ -252,29 +251,96 @@ def writeNewsToHtmlFile(_in):
 
         hl = getHighLight(tupItem[AUTH], tupItem[TITLE])
 
-        content += hl + """<a href="%s">%s &nbsp; <span id="author">%s</span></a><br>\n""" % (tupItem[LINK], 
+        content += hl + """<a href="%s">%s &nbsp; </a><span id="dimmer">%s</span><br>\n""" % (tupItem[LINK], 
                                                                                               tupItem[TITLE], 
                                                                                               tupItem[AUTH])
 
         time = ":".join(tupItem[TIME].split()[-2].split(":")[:2])         # 'March, 01 2021 12:10:15 +0000' => '12:10'
-        content += "<h2 class=\"subtitle\"> &#126;%s</h2><br>" % corrTime(time) if i % NEWS_UNDER_TIME == 0 else ""
+        content += "<h2 class=\"subtitleTime\"> &#126;%s</h2><br>" % corrTime(time) if i % NEWS_UNDER_TIME == 0 else ""
+
 
     if LIST_SKIPPED_NEWS:
 
-        content += "<br><hr><br><h2 class=\"subtitle\">Ohitetut uutiset:</h2><br></br>\n"
+        content += "<br><hr><br><h2 class=\"subtitleTime\">Ohitetut uutiset:</h2><br></br>\n"
 
         for i, tupItem in enumerate(lstSkippedNews):
 
             hl = getHighLight(tupItem[AUTH], tupItem[TITLE])
 
-            content += hl + """<a href="%s">%s &nbsp; <span id="author">%s</span> &nbsp; \
-                          <span id="author">Syy: '%s'</span></a><br>\n""" % (tupItem[LINK],
-                                                                             tupItem[TITLE],
-                                                                             tupItem[AUTH],
-                                                                             replace(tupItem[SKIP]))
-    fp.write(TEMPL_PAGE.substitute(content=content,
+            content += hl + """<a href="%s">%s &nbsp;</a> <span id="dimmer">%s &nbsp; \
+                               Syy: '%s'</span><br>\n""" % (tupItem[LINK],
+                                                            tupItem[TITLE],
+                                                            tupItem[AUTH],
+                                                            replace(tupItem[SKIP]))
+    fp.write(TEMPL_PAGE.substitute(link="results_by_media.html", 
+                                   linktitle="N&auml;yt&auml; medioittain",
+                                   extraspace="<br>",
+                                   content=content,
                                    style=CSS_STYLE))
     fp.close()
+
+
+
+def writeNewsToHtmlFileByMedia(_in):
+    """
+    Write collected and filtered news 
+    items to html result file listed under 
+    the medias found.
+    """
+    global CSS_STYLE
+
+    lstNews, lstSkippedNews = _in
+
+    fp = open(RESULT_FILE_BY_MEDIA, "w")
+
+    content = ""
+    dicNewsByMedia = {}
+
+
+    for tupItem in lstNews:
+
+        if tupItem[AUTH] not in dicNewsByMedia:
+            dicNewsByMedia[tupItem[AUTH]] = [list(tupItem)]
+
+        else:
+            dicNewsByMedia[tupItem[AUTH]].append(list(tupItem))
+
+
+
+    for media in sorted(dicNewsByMedia.keys()):
+
+        content += "<br><h2 class=\"subtitleAuthor\">%s</h2><br>" % media
+
+        for title, link, time, auth in dicNewsByMedia[media]:
+
+            hl = getHighLight(auth, title)
+
+            _time = ":".join(time.split()[-2].split(":")[:2])
+
+            content += hl + """<a href="%s">%s &nbsp;</a><span id="dimmer">%s</span><br>\n""" % (link, 
+                                                                                                  title, 
+                                                                                                  corrTime(_time))
+
+    if LIST_SKIPPED_NEWS:
+
+        content += "<br><hr><br><h2 class=\"subtitleAuthor\">Ohitetut uutiset:</h2><br></br>\n"
+
+        for i, tupItem in enumerate(lstSkippedNews):
+
+            hl = getHighLight(tupItem[AUTH], tupItem[TITLE])
+
+            content += hl + """<a href="%s">%s &nbsp;</a> <span id="dimmer">%s &nbsp; \
+                               Syy: '%s'</span><br>\n""" % (tupItem[LINK],
+                                                            tupItem[TITLE],
+                                                            tupItem[AUTH],
+                                                            replace(tupItem[SKIP]))
+    fp.write(TEMPL_PAGE.substitute(link="results.html", 
+                                   linktitle="N&auml;yt&auml; aikaj&auml;rjestyksess&auml;",
+                                   extraspace="",
+                                   content=content,
+                                   style=CSS_STYLE))
+    fp.close()
+
 
 
 def askIfOpenedWithBrowser():
@@ -337,7 +403,11 @@ def main():
 
     print("\nHaetaan %d sivullista uutisia...\n" % PAGE_COUNT_RETRIEVED)
 
-    writeNewsToHtmlFile(fetchNewsJSON())
+    data = fetchNewsJSON()
+
+    writeNewsToHtmlFile(data)
+
+    writeNewsToHtmlFileByMedia(data)
 
     print("\nValmis!\n")
 
