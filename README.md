@@ -6,6 +6,11 @@ The user can define how the news are filterd and if some are highlighted with a 
 
 Finnish introduction text below, english one coming below that later on!
 
+## Kuvakaappaus
+
+![kuvakaappaus](https://drive.google.com/uc?id=1OkLIB4H79W2GDugQM0D756Im4vTBgMrj)
+  
+  
 
 ## Yleiskuvaus
 
